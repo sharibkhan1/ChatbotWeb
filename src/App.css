@@ -1,38 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #202123;
+    color: #dcdcdc;
+}
+
 .App {
-  text-align: center;
+    padding-top: 3rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the App takes the full width */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.chats {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 60%;
+    padding-right: 2rem; /* Add padding to make space for the scrollbar */
+    height: calc(100vh - 14rem);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.chat.user {
+    margin: 1.5rem 2rem;
+    padding: 2rem 2rem;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: flex-start;
+    text-align: justify;
+    max-width: 60%;
+}
+.chat.bot {
+    margin: 1.5rem 2rem;
+    padding-top: 2rem ;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+    padding-left: 1rem;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: flex-start;
+    text-align: justify;
+    max-width: 60%;
 }
 
-.App-link {
-  color: #61dafb;
+.chat.bot {
+    background: #444654;
+    align-self: flex-start;
+    margin-right: auto;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chat.user {
+    background: #3b3f41;
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.chat img {
+    object-fit: cover;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+}
+.chat.bot img {
+    width: 5rem; /* Increase the width for the chatbot logo */
+}
+.chat.user img {
+    width: 3.5rem; /* Increase the width for the chatbot logo */
+}
+.chat p {
+    margin: 0;
+}
+
+.chatFooter {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inp {
+    padding: 0.5rem;
+    background: #40414F;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    justify-content: space-between;
+    width: calc(100% - 2rem); /* Make the input box take full width minus some padding */
+    max-width: 100rem; /* Ensure the input box doesn't exceed a maximum width */
+}
+
+.inp input {
+    outline: none;
+    padding: 1.25rem;
+    color: white;
+    width: 100%;
+    background: transparent;
+    border: none;
+}
+
+.inp .send {
+    background: transparent;
+    border: none;
+    margin-right: 1rem;
+}
+.appbar{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items: center;
+}
+.appbar img{
+    width: 14rem;
+    color: white;
+}
+.appbar p{
+   font-size: 3vh;
 }
