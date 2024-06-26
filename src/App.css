@@ -2,10 +2,109 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.chatTabs {
+    margin-top: 2rem;
+  }
+  
+  .chatTab {
+    padding: 1rem;
+    background: #3e3e3f;
+    color: #dcdcdc;
+    font-size: 1.4rem;
+    margin-bottom: 1.3rem;
+    cursor: pointer;
+    text-align: start;
+    border-radius: 0.5rem;
+    position: relative;
+  }
+  .chatTab:hover {
+    background: #525253;
+}
+  .chatTab.active {
+    background: #444654;
+    font-weight:500;
+  }
+  .clearBtn {
+    background: #3e3e3f;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 5rem;
+  }
+  .clearBtn:hover {
+    background: #525253;
+}
+.chatTab input{
+    background: transparent;
+    color: white;
+}
+  .chatTab button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #dcdcdc;
+    cursor: pointer;
+  }
+
+  .chatTab .edit-btn {
+    right: 3.4rem;
+    bottom: -0.4rem;
+  }
+  
+  .chatTab .delete-btn {
+    right: 0.7rem;
+    bottom: -0.4rem;
+  }
+  
+  /* Edit button */
+.edit-btn {
+    background: transparent;
+    border: none;
 }
 
+.edit-btn:hover i {
+    color: green; /* Change to green on hover */
+}
+
+/* Delete button */
+.delete-btn {
+    background: transparent;
+    border: none;
+}
+
+.delete-btn:hover i {
+    color: red; /* Change to red on hover */
+}
+
+/* .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+} */
+  
+/* .poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+} */
+  
 html {
     font-size: 62.5%;
+    
 }
 
 body {
@@ -14,32 +113,80 @@ body {
 }
 
 .App {
-    padding-top: 3rem;
+    /* padding-top: 3rem; */
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column;
     align-items: center;
-    width: 100%; /* Ensure the App takes the full width */
+    width: 100%;  */
 }
-
+.sideBar{
+    flex: 2;
+    background: #1a1a1c;
+    border-right: 1px solid black;
+    overflow-y: auto; /* Add scrollbar for sidebar */
+    max-height: 100vh; 
+}
 .main {
-    flex: 1;
+    flex: 9;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-
-.chats {
-    overflow-y: scroll;
+.upperSideTop img{
+    width: 100px;
+}
+.upperSideTop{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+.addBtn{
+    height: 2rem;
+    padding-right: 1rem;
+}
+.midBtn{
+    background: #3e3e3f;
+    color: #000;
+    border: none;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    width: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+}
+.midBtn:hover {
+    background: #525253;
+}
+.logo{
+    margin-right: 1rem;
+}
+.brand{
+    font-size: 2rem;
+}
+.upperSide{
+    padding: 2.5rem;
+    border-bottom: 1px;
+    height:40% ;
+}
+ .chats {
+    padding-top: 3rem;
+    overflow-y:scroll;
+    overflow-x: hidden;
     scroll-behavior: smooth;
-    width: 60%;
-    padding-right: 2rem; /* Add padding to make space for the scrollbar */
-    height: calc(100vh - 14rem);
+    width: 100%;
+    padding-right: 2rem; 
+    max-width: 100rem;
+    height: calc(100vh - 10rem);
 }
 
 .chat.user {
-    margin: 1.5rem 2rem;
+    margin: 2.5rem 2rem;
     padding: 2rem 2rem;
     font-size: 1.7rem;
     display: flex;
@@ -48,7 +195,7 @@ body {
     max-width: 60%;
 }
 .chat.bot {
-    margin: 1.5rem 2rem;
+    margin: 2.5rem 2rem;
     padding-top: 2rem ;
     padding-bottom: 2rem;
     padding-right: 2rem;
@@ -58,6 +205,19 @@ body {
     align-items: flex-start;
     text-align: justify;
     max-width: 60%;
+}
+.chat {
+    margin: 2.5rem 2rem;
+    padding: 2rem;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: flex-start;
+    text-align: justify;
+    max-width: 60%;
+    word-wrap: break-word; /* Ensures long words break to fit in the container */
+    overflow-wrap: break-word; /* Similar to word-wrap, but more comprehensive */
+    white-space: pre-wrap; /* Preserves whitespace and allows wrapping */
+    word-break: break-word; /* Ensures proper word breaking */
 }
 
 .chat.bot {
@@ -73,7 +233,7 @@ body {
     background: #3b3f41;
     align-self: flex-end;
     margin-left: auto;
-    text-align: right;
+    text-align: left;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     border-bottom-left-radius: 2rem;
@@ -81,21 +241,21 @@ body {
 
 .chat img {
     object-fit: cover;
-    margin-right: 2rem;
+    margin-right: 1.5rem;
     border-radius: 0.5rem;
 }
 .chat.bot img {
-    width: 5rem; /* Increase the width for the chatbot logo */
+    width: 5rem; 
 }
 .chat.user img {
-    width: 3.5rem; /* Increase the width for the chatbot logo */
+    width: 3.5rem; 
 }
 .chat p {
     margin: 0;
 }
 
 .chatFooter {
-    margin-top: 1rem;
+    margin-top: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -110,23 +270,27 @@ body {
     align-items: center;
     border-radius: 1rem;
     justify-content: space-between;
-    width: calc(100% - 2rem); /* Make the input box take full width minus some padding */
-    max-width: 100rem; /* Ensure the input box doesn't exceed a maximum width */
+    width: calc(100% - 10rem);  
+    max-width: 100rem;  
 }
 
-.inp input {
+.inp>input {
     outline: none;
     padding: 1.25rem;
     color: white;
-    width: 100%;
-    background: transparent;
-    border: none;
+    width: 93%;
+     background:transparent;
+    border: none; 
 }
 
 .inp .send {
     background: transparent;
     border: none;
     margin-right: 1rem;
+}
+.chatFooter p{
+    margin: 1rem 0;
+    font-size: 1.1rem;
 }
 .appbar{
     display:flex;
@@ -140,4 +304,28 @@ body {
 }
 .appbar p{
    font-size: 3vh;
+   font-weight: 500;
+} 
+
+/* Custom scrollbar */
+.scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(220, 220, 220, 0.5) rgba(0, 0, 0, 0);
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(220, 220, 220, 0.5);
+    border-radius: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(220, 220, 220, 0.7);
 }
